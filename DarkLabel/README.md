@@ -24,7 +24,7 @@
 	Ctrl+'s': GT 저장
 	F1: show help
 
- ** 작업 이미지를 학습 이미지 그대로 사용하려면 "NO BOX DRAWING"으로 해야 박스가 없음. [참고 사이트](https://coddingjiwon.tistory.com/13)
+ ** 작업 이미지를 학습 이미지 그대로 사용하려면 "NO BOX DRAWING"으로 해야 박스가 없음. [참고 설명 사이트](https://coddingjiwon.tistory.com/13)
 
 ### Advanced Instruction
 * Labeling by object tracking
