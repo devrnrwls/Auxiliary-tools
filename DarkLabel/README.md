@@ -1,15 +1,52 @@
 # DarkLabel
 
-### Video/Image Labeling and Annotation Tool
-This is a utility program that can label object bounding boxes with ID and name in videos and images. It also can be used to crop videos, sample traninig images in a video, and mosaic image region. Anyone can use it for non-commercial purposes.
-
-※ Since this program is not code-signed, download and execution may be blocked by Windows and web browsers. This is a personally created program and a 100% safe program, but only for those who need it.
-
 ### Download Latest Executable
 * [DarkLabel2.4](https://github.com/darkpgmr/DarkLabel/releases/download/darklabel-release/DarkLabel2.4.zip)
 (currently, only binary executables can be downloaded)
 
-![My image](https://github.com/darkpgmr/DarkLabel/blob/master/image/darklabel_gui.png)
+### Basic Instruction
+
+	Arrow/PgUp/PgDn/Home/End: 이미지 frame 이동
+	
+	Mouse: 왼쪽(box 생성), 오른쪽(가장 최근에 만든 box 취소)
+	Shift+Mouse: 왼쪽(box 수정), Right(선택 박스 삭제 or 모든 박스 삭제)
+	Shift+DoubleClick: box properties 수정(label, ID, difficulty)
+	
+	DoubleClick: select/deselect box 유사한 객체 추적
+	*box trajectory: boxes connected across frames with the same ID and label
+	
+	Ctrl+'+'/'-': 줌 in/out
+	Ctrl+Arrow: 줌된 화면 이동
+	Ctrl+MouseWheel: 줌 in/out
+	Ctrl+MouseDrag: 줌된 화면 이동
+	
+	Enter or Spacebar: 추적 적용하며 다음 화면
+	Ctrl+'s': GT 저장
+	F1: show help
+
+ ** 작업 이미지를 학습 이미지 그대로 사용하려면 "NO BOX DRAWING"으로 해야 박스가 없음. [참고 사이트](https://coddingjiwon.tistory.com/13)
+
+### Advanced Instruction
+* Labeling by object tracking
+  * By pressing 'Return' key, _newly created_ bounding boxes in the current frame are tracked in the next frame and labeled automatically.
+    * _newly created boxes_: the boxes that are created after entering into the frame.
+  * If there are selected trajectories in the frame (object trajectory can be selected by double clicking a box), only the trajectory boxes are tracked (newly created boxes are not tracked).
+  * If tracking is applied to trajectories, it first deletes their tail parts (connected trajectory boxes after the current frame) and then continue the tracking, keeping their IDs and labels. This functionality can be used to correct previous wrong tracking.
+  * Two trackers are embeded. (developed by darkpgmr)
+    * tracker1 (robust): good for deformable objects (e.g., human, ..)
+    * tracker2 (accurate): good for rigid/static object (e.g., vehicle, wall, house, ...)
+* Data Sampling/gathering
+  * If you want to sample images in a video and save them (e.g. gathering training samples), draw dummy boxes on the images and then export the annotation results as images with the "no box drawing" option selected and the "labeled frames only" checked.
+* Privacy Masking
+  * draw boxes on the privacy area (e.g. human faces) and then export the annotation results with the "mosaic the box area" option selected.
+* Full screen mode
+  * do annotation in full screen mode in case the image is too large to show in your monitor (double click the title bar of image window). You also can utilize zoom in functionality.
+* Don't forget to save your annotation results as often as possible. You can just press Ctrl+S.
+
+### Video/Image Labeling and Annotation Tool
+This is a utility program that can label object bounding boxes with ID and name in videos and images. It also can be used to crop videos, sample traninig images in a video, and mosaic image region. Anyone can use it for non-commercial purposes.
+
+※ Since this program is not code-signed, download and execution may be blocked by Windows and web browsers. This is a personally created program and a 100% safe program, but only for those who need it.
 
 ### Main Features
 * Video/image object labeling & annotation tool (bounding box with ID and label)
@@ -32,39 +69,3 @@ The program can be configured by modifying [darklabel.yml](https://github.com/da
 * adjust GUI drawing (box width, box color, ...)
 
 
-### Basic Instruction
-
-	Arrow/PgUp/PgDn/Home/End: navigate image frames	
-	
-	Mouse: Left(create box), Right(cancel the most recently created box)
-	Shift+Mouse: Left(modify box), Right(delete selected box/trajectory or all boxes)
-	Shift+DoubleClick: modify box properties (label, ID, difficulty)
-	
-	DoubleClick: select/deselect box trajectory
-	*box trajectory: boxes connected across frames with the same ID and label
-	
-	Ctrl+'+'/'-': zoom in/out
-	Ctrl+Arrow: scroll zoomed window
-	Ctrl+MouseWheel: zoom in/out
-	Ctrl+MouseDrag: scroll zoomed window
-	
-	Enter or Spacebar: apply tracking (selected trajectories or newly created boxes only)
-	Ctrl+'s': save gt	
-	F1: show help
-
-### Advanced Instruction
-* Labeling by object tracking
-  * By pressing 'Return' key, _newly created_ bounding boxes in the current frame are tracked in the next frame and labeled automatically.
-    * _newly created boxes_: the boxes that are created after entering into the frame.
-  * If there are selected trajectories in the frame (object trajectory can be selected by double clicking a box), only the trajectory boxes are tracked (newly created boxes are not tracked).
-  * If tracking is applied to trajectories, it first deletes their tail parts (connected trajectory boxes after the current frame) and then continue the tracking, keeping their IDs and labels. This functionality can be used to correct previous wrong tracking.
-  * Two trackers are embeded. (developed by darkpgmr)
-    * tracker1 (robust): good for deformable objects (e.g., human, ..)
-    * tracker2 (accurate): good for rigid/static object (e.g., vehicle, wall, house, ...)
-* Data Sampling/gathering
-  * If you want to sample images in a video and save them (e.g. gathering training samples), draw dummy boxes on the images and then export the annotation results as images with the "no box drawing" option selected and the "labeled frames only" checked.
-* Privacy Masking
-  * draw boxes on the privacy area (e.g. human faces) and then export the annotation results with the "mosaic the box area" option selected.
-* Full screen mode
-  * do annotation in full screen mode in case the image is too large to show in your monitor (double click the title bar of image window). You also can utilize zoom in functionality.
-* Don't forget to save your annotation results as often as possible. You can just press Ctrl+S.
