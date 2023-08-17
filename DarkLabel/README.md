@@ -37,9 +37,9 @@
     * tracker2 (accurate): good for rigid/static object (e.g., vehicle, wall, house, ...)
 * Data Sampling/gathering
   * If you want to sample images in a video and save them (e.g. gathering training samples), draw dummy boxes on the images and then export the annotation results as images with the "no box drawing" option selected and the "labeled frames only" checked.
-* Privacy Masking
+* 프라이버시 모드
   * draw boxes on the privacy area (e.g. human faces) and then export the annotation results with the "mosaic the box area" option selected.
-* Full screen mode
+* Full 스크린
   * do annotation in full screen mode in case the image is too large to show in your monitor (double click the title bar of image window). You also can utilize zoom in functionality.
 * Don't forget to save your annotation results as often as possible. You can just press Ctrl+S.
 
