@@ -25,6 +25,9 @@
 	F1: show help
 
  ** 작업 이미지를 학습 이미지 그대로 사용하려면 "NO BOX DRAWING"으로 해야 박스가 없음. [참고 설명 사이트](https://coddingjiwon.tistory.com/13)
+ - (기본) box drawing :  바운딩 박스가 쳐져있는 사진을 저장하는 형식
+ - (선택) no box drawing : 바운딩 박스 없이 사진만 저장하는 형식
+ - (선택) mosaic the box area : 바운딩 박스 지역을 모자이크 처리하여 저장하는 형식
 
 ### Advanced Instruction
 * Labeling by object tracking
