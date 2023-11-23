@@ -3,7 +3,7 @@
 ### Download Latest Executable
 * [DarkLabel2.4](https://github.com/darkpgmr/DarkLabel/releases/download/darklabel-release/DarkLabel2.4.zip)
 (currently, only binary executables can be downloaded)
-### 클래스 설정
+### 프로그램 클래스 설정
 1. darknet yolo
 2. darklabel.yml 파일에서 coco_classes에서 원하는 클래스 추가
 3. 라디오 박스 중 "Box"선택
